@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنفال سويتس | Anfal Sweets - حلويات ولاير كيك فاخرة</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts (Tajawal for soft & elegant look) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- إعدادات Tailwind المخصصة -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f472b6',    /* Pink 400 - لون وردي ناعم */
+                        primaryDark: '#db2777',/* Pink 600 - وردي داكن للتفاعل */
+                        secondary: '#9f1239',  /* Rose 800 - أحمر غرونا (Grena) فاخر */
+                        accent: '#10b981',     /* Emerald 500 - أخضر زاهي */
+                        gold: '#D4AF37',       /* Gold - لون ذهبي للمسات الفاخرة */
+                        lightbg: '#fdfbf7',    /* Beige - بيج فاتح جداً ودافئ */
+                        softpink: '#fdf2f8',   /* خلفية وردية فاتحة جداً */
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'float': 'floatCake 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        floatCake: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #fdfbf7; color: #4c1d95; }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdf2f8; }
+        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; }
+
+        /* خلفية مزخرفة بالدوائر */
+        .blobs-bg {
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(244, 114, 182, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(159, 18, 57, 0.05) 0%, transparent 25%);
+        }
+
+        .radius-blob {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: #f472b6;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden blobs-bg selection:bg-primary selection:text-white">
+
+    <!-- الشريط العلوي المصغر (تغيير النص من هنا) -->
+    <div class="bg-secondary text-white px-4 py-2 text-sm z-[60] relative">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center">
+            <!-- النص العلوي المتحرك (يمكنك تغييره من هنا) -->
+            <span class="font-medium tracking-wide mb-2 md:mb-0">✨ أنفال سويتس | Anfal Sweets نصنع مناسباتكم بحب ✨</span>
+            <div class="flex items-center gap-4">
+                <!-- رابط الواتساب العلوي: قم بتغيير الرقم بعد wa.me/ وفي نص الرابط -->
+                <a href="https://wa.me/213771077617" target="_blank" class="hover:text-primary transition font-bold flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-accent text-lg"></i> +213 771 077 617
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- شريط التنقل (Navbar) -->
+    <nav id="navbar" class="sticky w-full top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-pink-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 md:h-24">
+                <!-- الشعار: يمكنك تغيير الصورة image_4ea6a6.jpg بصورتك الخاصة -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden shadow-sm border-2 border-primary flex-shrink-0 bg-white">
+                        <img src="image_4ea6a6.jpg" alt="شعار أنفال سويتس" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-xl md:text-2xl text-secondary tracking-wide leading-tight">أنفال <span class="text-primary">سويتس</span></span>
+                        <span class="text-[10px] md:text-xs text-primaryDark font-bold tracking-widest uppercase">Anfal Sweets</span>
+                    </div>
+                </a>
+
+                <!-- الروابط لسطح المكتب -->
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-8 space-x-reverse">
+                        <a href="index.html" class="nav-link text-primaryDark font-bold px-3 py-2">الرئيسية</a>
+                        <a href="menu.html" class="nav-link text-gray-600 hover:text-primary px-3 py-2 font-bold">قائمة الحلويات</a>
+                        <a href="gallery.html" class="nav-link text-gray-600 hover:text-primary px-3 py-2 font-bold">معرض الصور</a>
+                        <a href="contact.html" class="nav-link text-gray-600 hover:text-primary px-3 py-2 font-bold">اتصل بنا</a>
+                    </div>
+                </div>
+
+                <!-- زر الطلب وزر الجوال -->
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/213771077617" target="_blank" class="hidden sm:flex bg-primary text-white px-6 py-2.5 rounded-full font-bold hover:bg-primaryDark transition shadow-lg shadow-primary/40 items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping"></i> اطلب الآن
+                    </a>
+
+                    <!-- زر القائمة للجوال -->
+                    <button id="mobile-menu-button" class="md:hidden text-secondary p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قائمة الجوال (مخفية افتراضياً) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-pink-100 absolute w-full shadow-xl animate-fade-in">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-4 py-3 text-primaryDark font-bold border-b border-pink-50">الرئيسية</a>
+                <a href="menu.html" class="block px-4 py-3 text-gray-600 font-bold border-b border-pink-50">قائمة الحلويات</a>
+                <a href="gallery.html" class="block px-4 py-3 text-gray-600 font-bold border-b border-pink-50">معرض الصور</a>
+                <a href="contact.html" class="block px-4 py-3 text-gray-600 font-bold border-b border-pink-50">اتصل بنا</a>
+                <div class="pt-4">
+                    <a href="https://wa.me/213771077617" target="_blank" class="w-full flex justify-center bg-primary text-white py-3 rounded-xl font-bold shadow-lg items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> اطلب عبر الواتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي (Hero) -->
+    <section id="home" class="relative pt-10 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+                <!-- النصوص (تعديل المحتوى من هنا) -->
+                <div class="lg:w-1/2 text-center lg:text-right z-10 animate-fade-in">
+                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-secondary font-bold text-sm mb-6 shadow-sm border border-pink-100">
+                        <i class="fa-solid fa-heart text-primary animate-pulse"></i> أنفال سويتس | Anfal Sweets
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-black text-secondary mb-6 leading-[1.1]">
+                        نصنع السعادة <br> في كل <span class="text-primary relative inline-block">طبقة
+                            <svg class="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 25 0, 50 5 T 100 5" fill="none" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/></svg>
+                        </span>
+                    </h1>
+                    <p class="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium">
+                        أشهى اللاير كيك والحلويات المصممة خصيصاً لتجعل مناسباتكم في <span class="text-secondary font-bold">أنفال سويتس (Anfal Sweets)</span> لا تُنسى.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/213771077617" target="_blank" class="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition shadow-lg shadow-accent/40 text-center flex items-center justify-center gap-3 group">
+                            <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition"></i> تواصل للطلب
+                        </a>
+                        <a href="menu.html" class="bg-white border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-softpink transition text-center flex items-center justify-center gap-2">
+                            استعرض القائمة
+                        </a>
+                    </div>
+                </div>
+
+                <!-- الصورة الجذابة (تغيير الصورة الرئيسية من هنا) -->
+                <div class="lg:w-1/2 relative z-10 flex justify-center">
+                    <div class="absolute inset-0 bg-softpink radius-blob transform scale-110 -z-10 shadow-xl opacity-70"></div>
+                    <div class="absolute inset-0 border-4 border-dashed border-primary/30 radius-blob transform scale-125 -z-20 rotate-12"></div>
+
+                    <!-- صورة الكيك الرئيسية -->
+                    <div class="relative group cursor-pointer animate-float">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" alt="Anfal Sweets Cake" class="relative z-10 rounded-3xl shadow-2xl border-8 border-white object-cover w-[300px] h-[380px] md:w-[400px] md:h-[500px]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent z-20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+
+                    <!-- بطاقات طافية -->
+                    <div class="absolute -top-6 -right-6 bg-white px-5 py-3 rounded-2xl shadow-xl z-20 flex items-center gap-3 font-bold text-sm text-secondary animate-bounce" style="animation-duration: 3s;">
+                        <span class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-gold"><i class="fa-solid fa-crown"></i></span>
+                        تصميم فاخر
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white px-5 py-3 rounded-2xl shadow-xl z-20 flex items-center gap-3 font-bold text-sm text-primary animate-bounce" style="animation-duration: 4s; animation-delay: 0.5s;">
+                        <span class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-accent"><i class="fa-solid fa-leaf"></i></span>
+                        طبيعي 100%
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المميزات السريع (تعديل المميزات هنا) -->
+    <section class="py-12 bg-white border-y border-pink-50">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-truck-fast text-3xl text-primary mb-3"></i>
+                <h4 class="font-bold text-secondary">توصيل سريع</h4>
+                <p class="text-xs text-gray-500">لباب منزلك بكل أمان</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-wand-magic-sparkles text-3xl text-primary mb-3"></i>
+                <h4 class="font-bold text-secondary">تصميم مخصص</h4>
+                <p class="text-xs text-gray-500">حسب ذوقك واختيارك</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-award text-3xl text-primary mb-3"></i>
+                <h4 class="font-bold text-secondary">جودة عالية</h4>
+                <p class="text-xs text-gray-500">أفضل المكونات العالمية</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <i class="fa-solid fa-face-smile-wink text-3xl text-primary mb-3"></i>
+                <h4 class="font-bold text-secondary">طعم لا يقاوم</h4>
+                <p class="text-xs text-gray-500">خبرة سنوات من الحب</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المنتجات المختارة (تعديل المنتجات من هنا) -->
+    <section id="products" class="py-24 bg-lightbg/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-primary font-black text-lg tracking-wider bg-softpink px-6 py-2 rounded-full inline-block mb-4 shadow-sm">🍰 اخترنا لكم من Anfal Sweets</span>
+                <h2 class="text-3xl md:text-5xl font-black text-secondary mt-2">تشكيلة مميزة لمناسباتكم</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <!-- كيك المناسبات -->
+                <div class="bg-white rounded-[2.5rem] p-5 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-pink-50 relative overflow-hidden">
+                    <div class="overflow-hidden rounded-[1.8rem] h-72 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1936&auto=format&fit=crop" alt="لاير كيك" class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">الأكثر طلباً</div>
+                    </div>
+                    <h3 class="text-2xl font-black text-secondary mb-3 text-center">لاير كيك المناسبات</h3>
+                    <p class="text-gray-500 text-center text-sm mb-6 leading-relaxed">كيكات متعددة الطبقات بحشوات فاخرة وتصاميم عصرية لأعياد الميلاد والتخرج.</p>
+                    <div class="flex justify-between items-center bg-softpink p-4 rounded-2xl">
+                        <span class="text-secondary font-black text-lg">ابتداءً من 4500 دج</span>
+                        <a href="https://wa.me/213771077617" target="_blank" class="bg-primary text-white p-3 rounded-xl hover:bg-primaryDark transition">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- الكب كيك -->
+                <div class="bg-white rounded-[2.5rem] p-5 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-pink-50 relative overflow-hidden md:mt-8">
+                    <div class="overflow-hidden rounded-[1.8rem] h-72 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=2070&auto=format&fit=crop" alt="كب كيك" class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+                    </div>
+                    <h3 class="text-2xl font-black text-secondary mb-3 text-center">بوكس الكب كيك</h3>
+                    <p class="text-gray-500 text-center text-sm mb-6 leading-relaxed">مجموعة شهية من الكب كيك الهش مزينة بكريمة الزبدة السويسرية الغنية.</p>
+                    <div class="flex justify-between items-center bg-softpink p-4 rounded-2xl">
+                        <span class="text-secondary font-black text-lg">ابتداءً من 1800 دج</span>
+                        <a href="https://wa.me/213771077617" target="_blank" class="bg-primary text-white p-3 rounded-xl hover:bg-primaryDark transition">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- كيك الزفاف -->
+                <div class="bg-white rounded-[2.5rem] p-5 shadow-lg hover:shadow-2xl transition-all duration-500 group border border-pink-50 relative overflow-hidden">
+                    <div class="overflow-hidden rounded-[1.8rem] h-72 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?q=80&w=2070&auto=format&fit=crop" alt="Wedding Cake" class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
+                        <div class="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">ملكي</div>
+                    </div>
+                    <h3 class="text-2xl font-black text-secondary mb-3 text-center">كيك الزفاف والخطوبة</h3>
+                    <p class="text-gray-500 text-center text-sm mb-6 leading-relaxed">تحف فنية كلاسيكية وناعمة مصممة بعناية لتناسب يومكم الكبير وتفاصيله الفخمة.</p>
+                    <div class="flex justify-between items-center bg-softpink p-4 rounded-2xl">
+                        <span class="text-secondary font-black text-lg">حسب الطلب</span>
+                        <a href="https://wa.me/213771077617" target="_blank" class="bg-gold text-white p-3 rounded-xl hover:bg-yellow-700 transition">
+                            <i class="fa-solid fa-comment-dots"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="menu.html" class="inline-flex items-center gap-2 text-primary font-black text-lg border-b-2 border-primary hover:gap-4 transition-all">
+                    مشاهدة القائمة الكاملة <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم القصة (About) -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1614145121029-83a9f7b68bf4?q=80&w=1974&auto=format&fit=crop" alt="Work" class="rounded-[3rem] shadow-2xl relative z-10 w-full h-[500px] object-cover">
+                        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/10 rounded-full -z-10 animate-pulse"></div>
+                        <div class="absolute top-1/2 -left-8 transform -translate-y-1/2 bg-white p-6 rounded-3xl shadow-xl z-20 border border-pink-50 hidden md:block">
+                            <p class="text-4xl font-black text-primary">5+</p>
+                            <p class="text-xs text-gray-500 font-bold">سنوات من الخبرة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <span class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">لماذا نحن؟</span>
+                    <h2 class="text-4xl md:text-5xl font-black text-secondary mb-8 leading-tight">في أنفال سويتس (Anfal Sweets) <br> الجودة هي سرنا</h2>
+                    <p class="text-gray-600 mb-10 leading-relaxed text-lg">
+                        بدأت رحلتنا بشغف بسيط لصناعة الحلويات، واليوم نفخر بأن نكون جزءاً من ذكرياتكم السعيدة. نحن نستخدم أجود أنواع الزبدة والشوكولاتة لنضمن لكم طعماً لا يُنسى.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center text-primary flex-shrink-0">
+                                <i class="fa-solid fa-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-1">دقة في المواعيد</h4>
+                                <p class="text-xs text-gray-500">نصلكم دائماً في الوقت المحدد لمناسبتكم.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-accent flex-shrink-0">
+                                <i class="fa-solid fa-wand-magic text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-1">إبداع بلا حدود</h4>
+                                <p class="text-xs text-gray-500">كل كيكة هي لوحة فنية خاصة بك.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم دعوة للطلب: تأكد من تغيير رابط الواتساب ورقم الهاتف لمواكبة بياناتك -->
+    <section class="py-24 bg-secondary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-8">جاهزون لجعل يومك أحلى؟</h2>
+            <p class="text-pink-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                تواصل معنا الآن عبر الواتساب لمناقشة تصميم كيكتك القادمة والحصول على استشارة مجانية حول الحجم والنكهات.
+            </p>
+            <!-- قم بتغيير الرقم في الرابط أدناه بعد wa.me/ -->
+            <a href="https://wa.me/213771077617" target="_blank" class="inline-flex items-center gap-4 bg-white text-secondary px-12 py-5 rounded-full font-black text-2xl hover:bg-softpink hover:scale-105 transition-all duration-300 shadow-2xl">
+                <i class="fa-brands fa-whatsapp text-4xl text-accent"></i> اطلب الآن عبر الواتساب
+            </a>
+            <div class="mt-8 flex justify-center gap-8 text-pink-200 font-bold">
+                <!-- قم بتغيير رقم الهاتف والنص هنا -->
+                <span class="flex items-center gap-2"><i class="fa-solid fa-phone"></i> +213 771 077 617</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> المدينة، الجزائر</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر (تغيير روابط التواصل الاجتماعي من هنا) -->
+    <footer class="bg-white pt-20 pb-10 border-t border-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+
+                <!-- العمود 1: عننا -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary">
+                            <img src="image_4ea6a6.jpg" alt="Anfal Sweets Logo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-black text-xl text-secondary">أنفال سويتس</span>
+                            <span class="text-[10px] text-primaryDark font-bold uppercase">Anfal Sweets</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        نصنع السعادة يدوياً بكل حب لجميع مناسباتكم السعيدة. نؤمن أن الكيك ليس مجرد حلوى، بل هو ذكرى.
+                    </p>
+                    <div class="flex gap-4">
+                        <!-- روابط التواصل الاجتماعي (ضع روابطك هنا) -->
+                        <a href="#" class="w-10 h-10 rounded-xl bg-softpink flex items-center justify-center text-primary hover:bg-primary hover:text-white transition shadow-sm"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-softpink flex items-center justify-center text-primary hover:bg-primary hover:text-white transition shadow-sm"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-softpink flex items-center justify-center text-primary hover:bg-primary hover:text-white transition shadow-sm"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- العمود 2: روابط سريعة -->
+                <div class="col-span-1">
+                    <h4 class="font-black text-secondary text-lg mb-6">روابط سريعة</h4>
+                    <ul class="space-y-4 text-gray-500 font-bold text-sm">
+                        <li><a href="index.html" class="hover:text-primary transition">الرئيسية</a></li>
+                        <li><a href="menu.html" class="hover:text-primary transition">قائمة الحلويات</a></li>
+                        <li><a href="gallery.html" class="hover:text-primary transition">معرض الصور</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- العمود 3: منتجاتنا -->
+                <div class="col-span-1">
+                    <h4 class="font-black text-secondary text-lg mb-6">حلوياتنا</h4>
+                    <ul class="space-y-4 text-gray-500 font-bold text-sm">
+                        <li><a href="menu.html#layer-cakes" class="hover:text-primary transition">لاير كيك</a></li>
+                        <li><a href="menu.html#cupcakes" class="hover:text-primary transition">كب كيك</a></li>
+                        <li><a href="menu.html#custom-cakes" class="hover:text-primary transition">كيك مخصص</a></li>
+                        <li><a href="menu.html#cookies" class="hover:text-primary transition">توزيعات كوكيز</a></li>
+                    </ul>
+                </div>
+
+                <!-- العمود 4: اوقات العمل -->
+                <div class="col-span-1">
+                    <h4 class="font-black text-secondary text-lg mb-6">ساعات العمل</h4>
+                    <ul class="space-y-4 text-gray-500 font-bold text-sm">
+                        <li class="flex justify-between"><span>السبت - الخميس:</span> <span>09:00 - 20:00</span></li>
+                        <li class="flex justify-between"><span>الجمعة:</span> <span class="text-primary">مغلق</span></li>
+                        <li class="mt-6">
+                            <p class="text-xs text-gray-400">للحالات الطارئة والطلبات العاجلة يرجى الاتصال مباشرة.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-pink-50 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                <p class="text-gray-400 font-medium text-sm">
+                    &copy; 2024 أنفال سويتس (Anfal Sweets). جميع الحقوق محفوظة.
+                </p>
+                <p class="text-gray-400 font-medium text-sm">
+                    تم التطوير بحب بواسطة <span class="text-primary font-bold">Anfal Sweets Team</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكربتات التفاعل -->
+    <script>
+        // تبديل قائمة الجوال
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // إغلاق القائمة عند النقر على رابط
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // تأثير تغيير النافبار عند السكرول
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('h-20', 'md:h-24');
+            } else {
+                navbar.classList.remove('py-2', 'shadow-md');
+                navbar.classList.add('h-20', 'md:h-24');
+            }
+        });
+
+        // التمرير السلس للروابط الداخلية
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

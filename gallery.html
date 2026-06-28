@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الصور | Anfal Sweets - أنفال سويتس</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f472b6',
+                        primaryDark: '#db2777',
+                        secondary: '#9f1239',
+                        accent: '#10b981',
+                        gold: '#D4AF37',
+                        lightbg: '#fdfbf7',
+                        softpink: '#fdf2f8',
+                    },
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #fdfbf7; color: #4c1d95; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 1.5rem; cursor: pointer; }
+        .gallery-item img { transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(159, 18, 57, 0.7), transparent);
+            opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: flex-end; padding: 1.5rem;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky w-full top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-pink-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+                        <img src="image_4ea6a6.jpg" alt="Logo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-lg text-secondary">أنفال سويتس</span>
+                        <span class="text-[8px] text-primaryDark font-bold uppercase">Anfal Sweets</span>
+                    </div>
+                </a>
+                <div class="hidden md:block">
+                    <div class="flex space-x-6 space-x-reverse">
+                        <a href="index.html" class="text-gray-600 font-bold hover:text-primary transition">الرئيسية</a>
+                        <a href="menu.html" class="text-gray-600 font-bold hover:text-primary transition">قائمة الحلويات</a>
+                        <a href="gallery.html" class="text-primaryDark font-bold">معرض الصور</a>
+                        <a href="contact.html" class="text-gray-600 font-bold hover:text-primary transition">اتصل بنا</a>
+                    </div>
+                </div>
+                <a href="https://wa.me/213771077617" target="_blank" class="bg-primary text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-primaryDark transition">اطلب الآن</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="py-16 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-black text-secondary mb-4">معرض إبداعاتنا</h1>
+            <p class="text-gray-500 text-lg">لمحة عن بعض أعمالنا وتصاميم الكيك التي نفذناها بكل حب.</p>
+        </div>
+    </header>
+
+    <!-- Gallery Grid -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Item 1 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">لاير كيك أعياد ميلاد</span>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1936&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">تصميم مودرن باستيل</span>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">كيك زفاف ملكي</span>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">تشكيلة كب كيك</span>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">تفاصيل تزيين يدوية</span>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="gallery-item h-80">
+                <img src="https://images.unsplash.com/photo-1614145121029-83a9f7b68bf4?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover">
+                <div class="gallery-overlay">
+                    <span class="text-white font-bold">من داخل المطبخ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <h3 class="text-2xl font-black text-secondary mb-6">تابعونا على انستغرام للمزيد</h3>
+            <a href="#" class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-lg">
+                <i class="fa-brands fa-instagram text-2xl"></i> anfal.sweets
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10 border-t border-pink-50 text-center mt-20">
+        <p class="text-gray-400 text-sm">&copy; 2024 أنفال سويتس (Anfal Sweets). جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
