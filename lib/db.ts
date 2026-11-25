@@ -83,12 +83,26 @@ export type DbParam = string | number | null;
 /**
  * فالإنتاج كنستعملو Turso (libSQL) عبر TURSO_DATABASE_URL + TURSO_AUTH_TOKEN.
  * محلياً، إلا ما كانش الـenv، كنخدمو على ملف SQLite محلي فـ.data/helw.db.
+ *
+ * على Vercel (serverless) الملفات ديال المشروع للقراءة فقط، لهذا إلا ما كانش Turso
+ * كنخدمو على /tmp/helw.db — كيخدم مزيان ولكن المعطيات كتمسح ملي كيبرد السيرفر.
  */
-const url = process.env.TURSO_DATABASE_URL || "file:.data/helw.db";
+const onServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const fallbackUrl = onServerless ? "file:/tmp/helw.db" : "file:.data/helw.db";
+const url = process.env.TURSO_DATABASE_URL || fallbackUrl;
 const authToken = process.env.TURSO_AUTH_TOKEN;
 
+/** true = قاعدة بيانات مؤقتة (بلا Turso على Vercel) */
+export const ephemeralDatabase = !process.env.TURSO_DATABASE_URL && onServerless;
+
 if (url.startsWith("file:")) {
-  fs.mkdirSync(path.join(process.cwd(), ".data"), { recursive: true });
+  const filePath = url.slice("file:".length);
+  const dir = path.isAbsolute(filePath) ? path.dirname(filePath) : path.join(process.cwd(), path.dirname(filePath));
+  try {
+    fs.mkdirSync(dir, { recursive: true });
+  } catch {
+    // نظام ملفات للقراءة فقط: نخليو المحاولة تفشل فالاستعلام بدل ما نطيحو كلشي
+  }
 }
 
 const globalForDb = globalThis as unknown as {
@@ -100,7 +114,14 @@ export const db: Client =
   globalForDb.__helwDb ?? (globalForDb.__helwDb = createClient({ url, authToken }));
 
 export function ensureReady(): Promise<void> {
-  return (globalForDb.__helwReady ??= prepareDatabase());
+  if (!globalForDb.__helwReady) {
+    globalForDb.__helwReady = prepareDatabase().catch((error) => {
+      // نخليو المحاولة القادمة تعاود، بدل ما نبقاو عالقين على خطأ واحد
+      globalForDb.__helwReady = undefined;
+      throw error;
+    });
+  }
+  return globalForDb.__helwReady;
 }
 
 async function prepareDatabase() {

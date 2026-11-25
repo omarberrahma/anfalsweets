@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { logoutAction } from "@/app/actions/auth";
 import { DashboardBrand, DashboardNav, DashboardTabs } from "@/components/dashboard-nav";
 import { getCurrentStore } from "@/lib/auth";
+import { ephemeralDatabase } from "@/lib/db";
 import { getStoreStats } from "@/lib/stores";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -65,6 +66,12 @@ export default async function DashboardLayout({ children }: { children: React.Re
       <DashboardTabs newOrders={stats.newOrders} />
 
       <div className="min-w-0 flex-1">
+        {ephemeralDatabase && (
+          <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-[11px] font-bold leading-relaxed text-amber-800">
+            وضع تجريبي: قاعدة البيانات مؤقتة على Vercel — المعطيات كتمسح ملي كيعاود السيرفر يشعل. ربّط Turso
+            باش تبقى دائمة.
+          </div>
+        )}
         <header className="sticky top-0 z-30 border-b border-stone-200/70 bg-white/85 backdrop-blur-xl lg:hidden">
           <div className="flex items-center justify-between px-4 py-3">
             <DashboardBrand />
